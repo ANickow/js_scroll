@@ -34,7 +34,11 @@
 		{
 			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
 
-			if(character_counter == words[word_counter].length)
+			if(words[word_counter][character_counter-1]===" "){ //Ensures that the cursor moves over to reflect a blank space in the word
+				el.innerHTML = el.innerHTML+ "&nbsp";
+			}
+
+			if(character_counter == words[word_counter].length+1) //Added 1 here to ensure that the last character has time to be displayed before moving on to next word
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
@@ -46,7 +50,7 @@
 			}
 		}
 
-		setInterval(updateText,300);
+		setInterval(updateText,500);
 
 	</script>
 
